@@ -1,0 +1,12 @@
+# Ignorar arquivos do IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Ignorar arquivos compilados do Java
+out/
+target/
+*.class
+
+# Ignorar arquivos do sistema
+.DS_Store
