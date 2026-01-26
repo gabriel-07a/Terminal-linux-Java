@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class CommandHandler {
     DirectoryManager dirManager;
     FileManager fileManager;
-    String[] args;
+
 
     HashMap<String, Command> comandos = new HashMap<>();
 
@@ -19,21 +19,29 @@ public class CommandHandler {
     }
 
 
-    public void execute(String argsEntrada){
-        this.args = argsEntrada.trim().split(" ");
+    public void execute(String input){
+
+        String[] args = input.trim().split(" ");
         //System.out.println(Arrays.toString(this.args));
 
-        //mano esse isBlank é um isempty maiss inteligente, ele desconsidera os espaços em branco
-        if(argsEntrada != null || argsEntrada.isBlank()){
-            //agora nesse caso a gente tem que fazer um jeito de identificar o comando
-            //se ele não for identificado é só printar ele e dizer comando não encontrado
-            Command command = CommandFactory.getComand(this.args[0]);
-            System.out.println(command);
 
+        //agora nesse caso a gente tem que fazer um jeito de identificar o comando
+        //se ele não for identificado é só printar ele e dizer comando não encontrado
+        Command command = CommandFactory.getComand(args[0]);
+        //System.out.println(command);
+
+        //verifica se o comando é nullo
+        if (command != null){
+            //esse execute vai rodar no objeto que veio da factory
+            command.execute(args, dirManager, fileManager);
         }else{
-            //nesse caso no terminal do ubuntu ele só não faz nada msm
-            //ele só prita o diretorio atual dnv
+            //printa igual ao terminal do linux
+            System.out.println(args[0] + ": comando não encontrado");
         }
+
+
+
+
     }
 
 
