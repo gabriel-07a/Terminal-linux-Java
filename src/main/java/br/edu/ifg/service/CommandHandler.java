@@ -32,7 +32,7 @@ public class CommandHandler {
 
         //verifica se o comando é nullo
         if (command != null){
-            //esse execute vai rodar no objeto que veio da factory
+            //esse execute vai rodar diretamente o objeto que veio da factory
             command.execute(args, dirManager, fileManager);
         }else{
             //printa igual ao terminal do linux
