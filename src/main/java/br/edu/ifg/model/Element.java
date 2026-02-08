@@ -17,5 +17,18 @@ public abstract class Element {
     public String getName(){
         return name;
     }
+    public Directory getParent() {
+        return parent;
+    }
+
+    // (Opcional) Setter para renomear (comando mv)
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // (Opcional) Setter para mover de pasta (comando mv)
+    public void setParent(Directory parent) {
+        this.parent = parent;
+    }
 
 }

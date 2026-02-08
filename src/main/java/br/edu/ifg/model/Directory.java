@@ -26,7 +26,9 @@ public class Directory extends Element{
         //retorna os elemento filhos do diretorio
         return childElements;
     }
-
+    public void removeChild(Element child) {
+        this.childElements.remove(child);
+    }
 
 
 }
